@@ -39,8 +39,14 @@ namespace PostOffice
         private void button1_Click(object sender, EventArgs e)
         {
             // 51.816468660013605, 107.65143629319506
-            Method(51.816468660013605, 107.65143629319506, 1000);
-            //Method(Convert.ToDouble(textBox1.Text), Convert.ToDouble(textBox2.Text), Convert.ToInt32(textBox3.Text));
+            //Method(51.816468660013605, 107.65143629319506, 1000);
+            try
+            {
+                Method(Convert.ToDouble(textBox1.Text), Convert.ToDouble(textBox2.Text), Convert.ToInt32(textBox3.Text));
+            }
+            catch (Exception ex){
+                MessageBox.Show("Вводите значения с плавающей точкой через ЗАПЯТУЮ!");
+            }
         }
     }
 }
