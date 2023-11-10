@@ -1,0 +1,14 @@
+D:\GitHub\PostOffice\PostOffice\bin\Debug\PostOffice.exe.config
+D:\GitHub\PostOffice\PostOffice\bin\Debug\PostOffice.exe
+D:\GitHub\PostOffice\PostOffice\bin\Debug\PostOffice.pdb
+D:\GitHub\PostOffice\PostOffice\bin\Debug\Dadata.dll
+D:\GitHub\PostOffice\PostOffice\obj\Debug\PostOffice.csproj.AssemblyReference.cache
+D:\GitHub\PostOffice\PostOffice\obj\Debug\PostOffice.Form1.resources
+D:\GitHub\PostOffice\PostOffice\obj\Debug\PostOffice.Properties.Resources.resources
+D:\GitHub\PostOffice\PostOffice\obj\Debug\PostOffice.csproj.GenerateResource.cache
+D:\GitHub\PostOffice\PostOffice\obj\Debug\PostOffice.csproj.CoreCompileInputs.cache
+D:\GitHub\PostOffice\PostOffice\obj\Debug\PostOffice.csproj.CopyComplete
+D:\GitHub\PostOffice\PostOffice\obj\Debug\PostOffice.exe
+D:\GitHub\PostOffice\PostOffice\obj\Debug\PostOffice.pdb
+D:\GitHub\PostOffice\PostOffice\bin\Debug\Newtonsoft.Json.dll
+D:\GitHub\PostOffice\PostOffice\bin\Debug\Newtonsoft.Json.xml
