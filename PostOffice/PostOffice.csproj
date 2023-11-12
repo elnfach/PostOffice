@@ -5,7 +5,7 @@
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProjectGuid>{41A09EBC-EC1F-42DC-AB93-CE9D85F084F3}</ProjectGuid>
-    <OutputType>Exe</OutputType>
+    <OutputType>WinExe</OutputType>
     <RootNamespace>PostOffice</RootNamespace>
     <AssemblyName>PostOffice</AssemblyName>
     <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
@@ -64,7 +64,10 @@
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="src\AddressWrap.cs" />
+    <Compile Include="src\FontManager.cs" />
     <Compile Include="src\KeyPressHandler.cs" />
+    <Compile Include="src\RenderPostalUnits.cs" />
+    <Compile Include="src\Schedule.cs" />
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>
@@ -77,6 +80,20 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <None Include="font\Alegreya\Alegreya-Italic-VariableFont_wght.ttf" />
+    <None Include="font\Alegreya\Alegreya-VariableFont_wght.ttf" />
+    <None Include="font\Alegreya\static\Alegreya-Black.ttf" />
+    <None Include="font\Alegreya\static\Alegreya-BlackItalic.ttf" />
+    <None Include="font\Alegreya\static\Alegreya-Bold.ttf" />
+    <None Include="font\Alegreya\static\Alegreya-BoldItalic.ttf" />
+    <None Include="font\Alegreya\static\Alegreya-ExtraBold.ttf" />
+    <None Include="font\Alegreya\static\Alegreya-ExtraBoldItalic.ttf" />
+    <None Include="font\Alegreya\static\Alegreya-Italic.ttf" />
+    <None Include="font\Alegreya\static\Alegreya-Medium.ttf" />
+    <None Include="font\Alegreya\static\Alegreya-MediumItalic.ttf" />
+    <None Include="font\Alegreya\static\Alegreya-Regular.ttf" />
+    <None Include="font\Alegreya\static\Alegreya-SemiBold.ttf" />
+    <None Include="font\Alegreya\static\Alegreya-SemiBoldItalic.ttf" />
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -90,6 +107,11 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="font\Alegreya\OFL.txt" />
+    <Content Include="font\Alegreya\README.txt" />
+    <Content Include="img\place_gm_blue_24dp.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

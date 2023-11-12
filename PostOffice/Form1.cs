@@ -10,13 +10,16 @@ using System.Windows.Forms;
 
 using Dadata;
 using Dadata.Model;
+using PostOffice.Properties;
 using PostOffice.src;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.Button;
 
 namespace PostOffice
 {
     public partial class Form1 : Form
     {
-        AddressWrap addressWrap;
+        RenderPostalUnits renderPostalUnits = null;
+        System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
         KeyPressHandler textbox1Handler = new KeyPressHandler();
         KeyPressHandler textbox2Handler = new KeyPressHandler();
         KeyPressHandler textbox3Handler = new KeyPressHandler();
@@ -26,12 +29,45 @@ namespace PostOffice
             InitializeComponent();
         }
 
-        async void Method(double lat, double lon, int radius)
+        async void SearchPostalUnits(double lat, double lon, int radius)
         {
             var api = new OutwardClientAsync(token);
             var response = await api.Geolocate<PostalUnit>(lat, lon, radius);
-            addressWrap = new AddressWrap(response.suggestions);
-            richTextBox1.Text = addressWrap.GetData();
+            if(renderPostalUnits != null)
+            {
+                renderPostalUnits.Init();
+            }
+            panel1.Controls.Clear();
+            foreach (var item in response.suggestions)
+            {
+                renderPostalUnits = new RenderPostalUnits(
+                    item.data.address_str,
+                    item.data.postal_code,
+                    item.data.is_closed,
+                    item.data.schedule_mon,
+                    item.data.schedule_tue,
+                    item.data.schedule_wed,
+                    item.data.schedule_thu,
+                    item.data.schedule_fri,
+                    item.data.schedule_sat,
+                    item.data.schedule_sun
+                    );
+
+                panel1.Controls.Add(renderPostalUnits.GetTitle());
+                panel1.Controls.Add(renderPostalUnits.GetSubTitle());
+                panel1.Controls.Add(renderPostalUnits.GetLocation());
+                panel1.Controls.Add(renderPostalUnits.GetIsClosed());
+
+                foreach (Schedule j in renderPostalUnits.GetData())
+                {
+                    panel1.Controls.Add(j.GetLabel());
+                }
+            }
+        }
+
+        private void location_Click(object sender, EventArgs e)
+        {
+            Clipboard.SetDataObject("");
         }
 
         private void Form1_Load(object sender, EventArgs e)
@@ -44,7 +80,7 @@ namespace PostOffice
             // 51.818410947834856, 107.65301106105547
             try
             {
-                Method(Convert.ToDouble(textBox1.Text), Convert.ToDouble(textBox2.Text), Convert.ToInt32(textBox3.Text));
+                SearchPostalUnits(Convert.ToDouble(textBox1.Text), Convert.ToDouble(textBox2.Text), Convert.ToInt32(textBox3.Text));
             }
             catch (Exception ex){
                 MessageBox.Show("Входная строка имеет неправильное значение");
