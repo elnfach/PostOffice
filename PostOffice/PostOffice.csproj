@@ -64,8 +64,6 @@
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="src\AddressWrap.cs" />
-    <Compile Include="src\FontManager.cs" />
-    <Compile Include="src\KeyPressHandler.cs" />
     <Compile Include="src\RenderPostalUnits.cs" />
     <Compile Include="src\Schedule.cs" />
     <EmbeddedResource Include="Form1.resx">

@@ -45,8 +45,8 @@ namespace PostOffice.src
             _postal_code = postal_code;
 
             title.AutoSize = true;
-            title.Font = new Font("Times New Roman", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            title.ForeColor = System.Drawing.Color.White;
+            title.Font = new Font("Bahnschrift", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            title.ForeColor = Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(37)))), ((int)(((byte)(23)))));
             title.Location = new Point(30, shift + 20);
             title.Size = new Size(176, 33);
             title.Text = "Почта России";
@@ -54,7 +54,8 @@ namespace PostOffice.src
             shift += 30;
 
             subtitle.AutoSize = true;
-            subtitle.ForeColor = System.Drawing.Color.White;
+            subtitle.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            subtitle.ForeColor = Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(37)))), ((int)(((byte)(23)))));
             subtitle.Location = new Point(30, shift + 20);
             subtitle.Size = new Size(176, 33);
             subtitle.Text = "Почтовое отделение";
@@ -70,13 +71,13 @@ namespace PostOffice.src
             location.FlatStyle = FlatStyle.Flat;
             location.TextAlign = ContentAlignment.MiddleLeft;
             location.Text = $"{address_str}, {postal_code}";
-            location.ForeColor = System.Drawing.Color.White;
+            location.ForeColor = Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(37)))), ((int)(((byte)(23)))));
             location.Click += new EventHandler(location_Click);
 
             shift += 50;
 
             closed.AutoSize = true;
-            closed.ForeColor = System.Drawing.Color.White;
+            closed.ForeColor = Color.White;
             closed.Font = new Font(closed.Font, FontStyle.Bold);
             closed.Location = new Point(30, shift + 20);
             closed.Size = new Size(176, 33);
@@ -93,19 +94,19 @@ namespace PostOffice.src
 
             shift += 30;
 
-            _monday = new Schedule($"Пн: {schedule_mon}", 30, shift + 20);
+            _monday = new Schedule($"Пн: ", schedule_mon, 30, shift + 20, "Monday");
             shift += 30;
-            _tuesday = new Schedule($"Вт: {schedule_tue}", 30, shift + 20);
+            _tuesday = new Schedule($"Вт: ", schedule_tue, 30, shift + 20, "Tuesday");
             shift += 30;
-            _wednesday = new Schedule($"Ср: {schedule_wed}", 30, shift + 20);
+            _wednesday = new Schedule($"Ср: ", schedule_wed, 30, shift + 20, "Wednesday");
             shift += 30;
-            _thursday = new Schedule($"Чт: {schedule_thu}", 30, shift + 20);
+            _thursday = new Schedule($"Чт: ", schedule_thu, 30, shift + 20, "Thursday");
             shift += 30;
-            _friday = new Schedule($"Пт: {schedule_fri}", 30, shift + 20);
+            _friday = new Schedule($"Пт: ", schedule_fri, 30, shift + 20, "Friday");
             shift += 30;
-            _saturday = new Schedule($"Сб: {schedule_sat}", 30, shift + 20);
+            _saturday = new Schedule($"Сб: ", schedule_sat, 30, shift + 20, "Saturday");
             shift += 30;
-            _sunday = new Schedule($"Вс: {schedule_sun}", 30, shift + 20);
+            _sunday = new Schedule($"Вс: ", schedule_sun, 30, shift + 20, "Sunday");
             list.Add(_monday);
             list.Add(_tuesday);
             list.Add(_wednesday);
